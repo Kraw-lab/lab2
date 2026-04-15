@@ -1,0 +1,181 @@
+* 
+
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'Irish Grover';
+    src: url('fonts/IrishGrover-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'IrishGrover-Regular', sans-serif;
+    overflow-x: hidden; /* Щоб рука не створювала прокрутку */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Навігація */
+.navbar {
+    padding: 20px 0;
+    border-bottom: 1px solid #222;
+}
+
+.nav-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-top {
+    height: 70px;
+}
+
+.brand-text-top {
+    height: 50px;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.menu a.active {
+    color: #44ff00; /* Зелений колір Monster */
+}
+
+/* Постер */
+.hero-poster-wrapper {
+    position: relative;
+    width: 100%;
+    display: inline-block; /* Щоб обгортка займала розмір картинки */
+}
+
+.hero-poster-img {
+    width: 100%;
+    display: block;
+}
+
+.hero-caption {
+    
+    position: absolute;
+    /* Координати з макета Figma (підкоригуй, якщо треба) */
+    top: 55%; /* Зверху на 55% від висоти постера */
+    left: 80px; /* Від лівого краю постера */
+    
+    /* Додаємо невелике центрування, щоб воно гарно виглядало */
+    max-width: 900px;
+    z-index: 10; /* Переконуємося, що текст поверх усього */
+}
+
+
+/* Стиль тексту 'FUEL YOUR PASSION...' */
+.hero-tagline {
+    font-family: 'Irish Grover', sans-serif; /* Тут має бути stylized шрифт з Figma */
+    color: #fff;
+    font-size: 38px;
+    font-weight: bold;
+    margin-bottom: 25px; /* Відступ до кнопки */
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* Тінь, щоб текст читався */
+}
+
+/* Стиль ґудзика 'SHOP NOW' (відносно Figma) */
+.hero-btn-shop {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: #7DA44E; /* Колір з твого скріншоту image_3.png */
+    color: #000; /* Чорний текст */
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    border: none;
+    /* Додаємо невеликий ефект, щоб він виглядав як ґудзик */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+/* Секція з банками */
+.products {
+    padding: 80px 0;
+    position: relative; /* Важливо для позиціонування руки */
+}
+
+.title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 50px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* ТРИ В РЯДОК */
+    gap: 20px;
+}
+
+.card {
+    border: 2px solid #44ff00;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+}
+
+.card img {
+    height: 250px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background: #44ff00;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Рука в правому нижньому кутку */
+.hand-fixed {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 250px; /* Підкоригуй розмір під свою картинку */
+    pointer-events: none; /* Щоб не заважала клікати на кнопки */
+}
+
+/* Адаптивність */
+@media (max-width: 900px) {
+    .product-grid {
+        grid-template-columns: 1fr; /* На телефоні все в один стовпчик */
+    }
+    .hand-fixed {
+        display: none; /* На малих екранах краще приховати руку, щоб не закривала текст */
+    }
+}
