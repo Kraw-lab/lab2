@@ -1,25 +1,25 @@
-* 
-{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 @font-face {
     font-family: 'Irish Grover';
     src: url('fonts/IrishGrover-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
-html {
-  scroll-behavior: smooth;
-}
 
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     background-color: #000;
     color: #fff;
-    font-family: 'IrishGrover-Regular', sans-serif;
-    overflow-x: hidden; /* Щоб рука не створювала прокрутку */
+    font-family: 'Irish Grover', sans-serif;
+    overflow-x: hidden;
 }
 
 .container {
@@ -28,9 +28,9 @@ body {
     padding: 0 20px;
 }
 
-/* Навігація */
+/* ========== НАВІГАЦІЯ ========== */
 .navbar {
-    padding: 20px 0;
+    padding: 15px 0;
     border-bottom: 1px solid #222;
 }
 
@@ -38,6 +38,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 .logo-top {
@@ -48,107 +50,126 @@ body {
     height: 50px;
 }
 
+.menu {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
 .menu a {
     color: #fff;
     text-decoration: none;
-    margin: 0 15px;
     font-weight: bold;
     font-size: 14px;
+    padding: 8px 15px;
 }
 
 .menu a.active {
-    color: #44ff00; /* Зелений колір Monster */
+    color: #44ff00;
 }
 
-/* Постер */
+/* ========== HERO СЕКЦІЯ ========== */
 .hero-poster-wrapper {
     position: relative;
     width: 100%;
-    display: inline-block; /* Щоб обгортка займала розмір картинки */
 }
 
 .hero-poster-img {
     width: 100%;
+    height: auto;
     display: block;
+    min-height: 300px;
+    object-fit: cover;
 }
 
 .hero-caption {
-    
     position: absolute;
-    /* Координати з макета Figma (підкоригуй, якщо треба) */
-    top: 55%; /* Зверху на 55% від висоти постера */
-    left: 80px; /* Від лівого краю постера */
-    
-    /* Додаємо невелике центрування, щоб воно гарно виглядало */
-    max-width: 900px;
-    z-index: 10; /* Переконуємося, що текст поверх усього */
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    max-width: 90%;
+    z-index: 10;
 }
 
-
-/* Стиль тексту 'FUEL YOUR PASSION...' */
 .hero-tagline {
-    font-family: 'Irish Grover', sans-serif; /* Тут має бути stylized шрифт з Figma */
+    font-family: 'Irish Grover', sans-serif;
     color: #fff;
-    font-size: 38px;
+    font-size: clamp(1.2rem, 4vw, 2.4rem);
     font-weight: bold;
-    margin-bottom: 25px; /* Відступ до кнопки */
+    margin-bottom: 20px;
     letter-spacing: 1px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* Тінь, щоб текст читався */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    line-height: 1.3;
 }
 
-/* Стиль ґудзика 'SHOP NOW' (відносно Figma) */
 .hero-btn-shop {
     display: inline-block;
     padding: 12px 28px;
-    background-color: #7DA44E; /* Колір з твого скріншоту image_3.png */
-    color: #000; /* Чорний текст */
+    background-color: #7DA44E;
+    color: #000;
     text-decoration: none;
     border-radius: 6px;
     font-weight: bold;
     font-size: 14px;
     text-align: center;
     border: none;
-    /* Додаємо невеликий ефект, щоб він виглядав як ґудзик */
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s, background-color 0.2s;
 }
 
-/* Секція з банками */
+.hero-btn-shop:hover {
+    background-color: #44ff00;
+    transform: scale(1.05);
+}
+
+/* ========== ПРОДУКТИ ========== */
 .products {
-    padding: 80px 0;
-    position: relative; /* Важливо для позиціонування руки */
+    padding: 60px 0;
+    position: relative;
 }
 
 .title {
     text-align: center;
-    font-size: 32px;
-    margin-bottom: 50px;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    margin-bottom: 40px;
 }
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* ТРИ В РЯДОК */
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
 }
 
 .card {
     border: 2px solid #44ff00;
     border-radius: 15px;
-    padding: 30px;
+    padding: 25px 20px;
     text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(68, 255, 0, 0.2);
 }
 
 .card img {
-    height: 250px;
-    margin-bottom: 20px;
+    max-width: 100%;
+    height: auto;
+    max-height: 220px;
+    object-fit: contain;
+    margin-bottom: 15px;
 }
 
 .card h3 {
     margin-bottom: 10px;
+    font-size: 1.1rem;
 }
 
 .card p {
     color: #888;
     margin-bottom: 20px;
+    font-size: 0.9rem;
 }
 
 .btn {
@@ -158,23 +179,210 @@ body {
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
+    transition: background-color 0.2s, transform 0.2s;
 }
 
-/* Рука в правому нижньому кутку */
+.btn:hover {
+    background-color: #5aff1a;
+    transform: scale(1.05);
+}
+
+/* Рука */
 .hand-fixed {
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 250px; /* Підкоригуй розмір під свою картинку */
-    pointer-events: none; /* Щоб не заважала клікати на кнопки */
+    width: 220px;
+    pointer-events: none;
+    z-index: 5;
 }
 
-/* Адаптивність */
-@media (max-width: 900px) {
-    .product-grid {
-        grid-template-columns: 1fr; /* На телефоні все в один стовпчик */
+/* ========== АДАПТИВНІСТЬ ========== */
+
+/* Великі екрани (1200px+) */
+@media (min-width: 1200px) {
+    .container {
+        padding: 0 40px;
     }
+    
+    .card img {
+        max-height: 250px;
+    }
+}
+
+/* Ноутбуки та невеликі десктопи (992px - 1199px) */
+@media (max-width: 1199px) {
+    .product-grid {
+        gap: 20px;
+    }
+    
     .hand-fixed {
-        display: none; /* На малих екранах краще приховати руку, щоб не закривала текст */
+        width: 180px;
+    }
+}
+
+/* Планшети (768px - 991px) */
+@media (max-width: 991px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .hero-caption {
+        left: 4%;
+    }
+    
+    .hand-fixed {
+        width: 150px;
+        opacity: 0.7;
+    }
+    
+    .logo-top {
+        height: 55px;
+    }
+    
+    .brand-text-top {
+        height: 40px;
+    }
+}
+
+/* Великі телефони (576px - 767px) */
+@media (max-width: 767px) {
+    .navbar {
+        padding: 12px 0;
+    }
+    
+    .nav-flex {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .menu {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    
+    .menu a {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+    
+    .logo-top {
+        height: 50px;
+    }
+    
+    .brand-text-top {
+        height: 35px;
+    }
+    
+    .hero-caption {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 90%;
+    }
+    
+    .hero-btn-shop {
+        padding: 10px 24px;
+        font-size: 13px;
+    }
+    
+    .products {
+        padding: 40px 0;
+    }
+    
+    .product-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .card {
+        padding: 20px 15px;
+    }
+    
+    .card img {
+        max-height: 180px;
+    }
+    
+    .hand-fixed {
+        display: none;
+    }
+}
+
+/* Малі телефони (до 575px) */
+@media (max-width: 575px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .logo-top {
+        height: 45px;
+    }
+    
+    .brand-text-top {
+        height: 30px;
+    }
+    
+    .menu a {
+        font-size: 12px;
+        padding: 5px 10px;
+        margin: 2px;
+    }
+    
+    .hero-poster-img {
+        min-height: 250px;
+    }
+    
+    .hero-tagline {
+        margin-bottom: 15px;
+    }
+    
+    .hero-btn-shop {
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+    
+    .title {
+        margin-bottom: 30px;
+    }
+    
+    .card {
+        padding: 20px;
+    }
+    
+    .card img {
+        max-height: 160px;
+    }
+    
+    .card h3 {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+}
+
+/* Дуже малі екрани (до 360px) */
+@media (max-width: 360px) {
+    .logo-top {
+        height: 40px;
+    }
+    
+    .brand-text-top {
+        height: 25px;
+    }
+    
+    .menu a {
+        font-size: 11px;
+        padding: 4px 8px;
+    }
+    
+    .card img {
+        max-height: 140px;
     }
 }
